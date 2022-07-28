@@ -1,0 +1,45 @@
+﻿{
+  "RandomSeed": 0,
+  "Swaps": 10,
+  "AvailableItems": [ 1, 2, 4, 5, 6 ],
+  "Requirements": [
+    {
+      "Type": 1,
+      "Id": 1,
+      "Level": 1,
+      "Value": 5
+    }
+  ],
+  "Tiles": [
+    {
+      "Position": {
+        "X": 1,
+        "Y": 1
+      },
+      "Direction": 1,
+      "Item": {
+        "Id": 1,
+        "Level": 1
+      },
+      "TileType": 0,
+      "Modifiers": [
+        {
+          "Id": 1,
+          "Level": 1
+        }
+      ]
+    }
+  ],
+  "Edges": [
+    {
+      "Index": 1,
+      "Position": {
+        "X": 1,
+        "Y": 1
+      },
+      "Type": 0,
+      "Direction": 1,
+      "Queue": []
+    }
+  ]
+}

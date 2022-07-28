@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="Match3.Editor.LevelEditor.LevelEditorItemTile"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Match3.Editor.LevelEditor"
+             xmlns:utils="clr-namespace:Match3.Editor.Utils"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d"
+			 
+             Width="50" Height="50"
+             d:DesignHeight="50" d:DesignWidth="50" Background="#0F000000" MouseEnter="MouseEnterHandler" MouseLeave="MouseLeaveHandler" >
+	<x:Code>
+		<![CDATA[
+        void MouseEnterHandler(object sender, RoutedEventArgs e)
+        {
+            //Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#2F000000"));
+        }
+        
+        void MouseLeaveHandler(object sender, RoutedEventArgs e)
+        {
+            //Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#0F000000"));
+        }
+        ]]>
+	</x:Code>
+	<Grid>
+		<StackPanel x:Name="StackPanel" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Right">
+
+		</StackPanel>
+	</Grid>
+</UserControl>

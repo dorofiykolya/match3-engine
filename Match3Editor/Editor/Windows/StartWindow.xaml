@@ -1,0 +1,63 @@
+﻿<Window x:Class="Match3.Editor.Windows.StartWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Strat Page" Width="800" Height="600" Icon="/Match3Editor;component/Icons/favicon.png" >
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Shadows.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ToggleButton.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <materialDesign:DialogHost Identifier="RootDialog" x:Name="RootDialog" >
+        <materialDesign:DialogHost.DialogContent>
+            <ProgressBar Width="24" Height="24" Margin="16"
+                 Style="{DynamicResource MaterialDesignCircularProgressBar}"
+                 IsIndeterminate="True"
+                 Value="33"/>
+        </materialDesign:DialogHost.DialogContent>
+        <materialDesign:DrawerHost IsLeftDrawerOpen="{Binding ElementName=MenuToggleButton, Path=IsChecked}">
+            <DockPanel>
+                <materialDesign:ColorZone Padding="16" materialDesign:ShadowAssist.ShadowDepth="Depth3"
+                                            Mode="PrimaryMid" DockPanel.Dock="Top" Background="#03a9f4">
+                    <DockPanel>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" Text="Level editor"/>
+
+                        <Button Click="ButtonOpenEdit_OnClick" ToolTip="Open and Edit" Cursor="Hand" HorizontalAlignment="Right" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="#FFFFFF" BorderBrush="#FF0078D7" DockPanel.Dock="Right">
+                            <materialDesign:PackIcon Kind="File" />
+                        </Button>
+                        <Button Click="ButtonOpenPlay_OnClick" ToolTip="Open and Play" Cursor="Hand" HorizontalAlignment="Right" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="#FFFFFF" BorderBrush="#FF0078D7" Margin="0,0,5,0" DockPanel.Dock="Right">
+                            <materialDesign:PackIcon Kind="Play" />
+                        </Button>
+                        <Button Click="ButtonCreate_OnClick" ToolTip="Create" Cursor="Hand" HorizontalAlignment="Right" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="#FFFFFF" BorderBrush="#FF0078D7" Margin="0,0,5,0" DockPanel.Dock="Right">
+                            <materialDesign:PackIcon Kind="Plus" />
+                        </Button>
+                    </DockPanel>
+
+                </materialDesign:ColorZone>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto">
+                        <StackPanel Margin="10" Name="RecentlyPanel">
+
+                        </StackPanel>
+                    </ScrollViewer>
+
+                </Grid>
+            </DockPanel>
+        </materialDesign:DrawerHost>
+    </materialDesign:DialogHost>
+
+</Window>

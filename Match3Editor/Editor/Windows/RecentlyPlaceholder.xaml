@@ -1,0 +1,59 @@
+﻿<UserControl x:Class="Match3.Editor.Windows.RecentlyPlaceholder"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Match3Editor"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" Width="Auto"
+>
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Shadows.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ToggleButton.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TextBlock.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <materialDesign:DialogHost x:Name="DialogHost">
+        <materialDesign:DialogHost.DialogContent>
+            <ProgressBar Width="24" Height="24" Margin="16"
+                 Style="{DynamicResource MaterialDesignCircularProgressBar}"
+                 IsIndeterminate="True"
+                 Value="33"/>
+        </materialDesign:DialogHost.DialogContent>
+        <materialDesign:Card Margin="4 4 0 0" Background="#03a9f4"
+                      Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}"
+                      Padding="0"
+                      Width="Auto">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <TextBlock Name="FileName" Grid.Column="0" Grid.Row="0" Margin="16 16 16 4" Style="{StaticResource MaterialDesignHeadlineTextBlock}">FileName</TextBlock>
+                <TextBlock Name="FilePath" Grid.Column="0" Grid.Row="0" Margin="16 60 16 4" >FileName</TextBlock>
+                <Separator Grid.Column="0" Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}"/>
+                <TextBlock Grid.Column="0" Name="Time" Grid.Row="2" Margin="16 0 16 8" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignBody2TextBlock}">March 19, 2016</TextBlock>
+                <StackPanel Grid.Column="0" Grid.Row="2" Orientation="Horizontal" Margin="16 0 16 8" HorizontalAlignment="Right">
+                    <Button HorizontalAlignment="Right" Style="{StaticResource MaterialDesignToolForegroundButton}" Width="30" Padding="2 0 2 0" ToolTip="Play"
+                                materialDesign:RippleAssist.IsCentered="True" Click="Button_Play_OnClick">
+                        <materialDesign:PackIcon Kind="Play" />
+                    </Button>
+                    <Button HorizontalAlignment="Right" Style="{StaticResource MaterialDesignToolForegroundButton}" Width="30" Padding="2 0 2 0" ToolTip="Edit"
+                                materialDesign:RippleAssist.IsCentered="True" Click="Button_Edit_OnClick">
+                        <materialDesign:PackIcon Kind="TableEdit" />
+                    </Button>
+                    <Separator></Separator>
+                    <Button HorizontalAlignment="Right" Style="{StaticResource MaterialDesignToolForegroundButton}" Width="30" Padding="10 0 2 0" ToolTip="Delete"
+                                materialDesign:RippleAssist.IsCentered="True" Click="Button_DeleteFromList_OnClick">
+                        <materialDesign:PackIcon Kind="Delete" />
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </materialDesign:Card>
+    </materialDesign:DialogHost>
+</UserControl>

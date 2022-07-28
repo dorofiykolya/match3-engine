@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="Match3.Editor.LevelEditor.LevelEditorModifierItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Match3.Editor.LevelEditor"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             DataContext="{Binding RelativeSource={RelativeSource Self}}"
+             mc:Ignorable="d" 
+             Width="20" Height="20">
+    <Grid>
+        <Rectangle Width="{Binding Width}" Height="{Binding Height}" Fill="Black" Opacity="0.5"></Rectangle>
+        <materialDesign:PackIcon Foreground="{Binding Color}" VerticalAlignment="Top" HorizontalAlignment="Right" Width="{Binding Width}" Height="{Binding Height}" Kind="CheckboxBlankCircleOutline" ></materialDesign:PackIcon>
+        <Label Content="{Binding Count, Mode=OneWay}" FontSize="9" Padding="0" Foreground="{Binding Color}" VerticalAlignment="Center" HorizontalAlignment="Center" Width="{Binding Width}" Height="{Binding Height}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold"></Label>
+    </Grid>
+</UserControl>

@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1BE628C8-D8CA-4974-844F-DD0EB2C18C80}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Match3</RootNamespace>
+    <AssemblyName>Match3Engine</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Source\Engine\CombinationActivators\UniversalSwapItemActivator.cs" />
+    <Compile Include="Source\Engine\Commands\AddEnergyCommand.cs" />
+    <Compile Include="Source\Engine\Commands\AddSpellCommand.cs" />
+    <Compile Include="Source\Engine\Commands\AddSwapCommand.cs" />
+    <Compile Include="Source\Engine\Commands\EngineCommand.cs" />
+    <Compile Include="Source\Engine\Commands\UseSpellCommand.cs" />
+    <Compile Include="Source\Engine\Descriptions\Items\ItemActivator.cs" />
+    <Compile Include="Source\Engine\Descriptions\Levels\LevelEdgeDescription.cs" />
+    <Compile Include="Source\Engine\Descriptions\Levels\LevelTileDescription.cs" />
+    <Compile Include="Source\Engine\Descriptions\Items\ItemDescription.cs" />
+    <Compile Include="Source\Engine\Descriptions\Levels\LevelRequirementDescription.cs" />
+    <Compile Include="Source\Engine\Descriptions\Levels\LevelRequirementType.cs" />
+    <Compile Include="Source\Engine\Descriptions\Modifiers\ModifierActivatorType.cs" />
+    <Compile Include="Source\Engine\Descriptions\Modifiers\ModifierDescription.cs" />
+    <Compile Include="Source\Engine\Descriptions\SpellCombinations\SpellCombinationDescription.cs" />
+    <Compile Include="Source\Engine\Descriptions\Spells\SpellDescription.cs" />
+    <Compile Include="Source\Engine\Descriptions\Spells\SpellLevelDescription.cs" />
+    <Compile Include="Source\Engine\Descriptions\Spells\SpellType.cs" />
+    <Compile Include="Source\Engine\Descriptions\Spells\SpellUseType.cs" />
+    <Compile Include="Source\Engine\EngineActions.cs" />
+    <Compile Include="Source\Engine\EngineEnvironment.cs" />
+    <Compile Include="Source\Engine\EngineOutput.cs" />
+    <Compile Include="Source\Engine\EngineProcessor.cs" />
+    <Compile Include="Source\Engine\EngineRequirement.cs" />
+    <Compile Include="Source\Engine\EngineScore.cs" />
+    <Compile Include="Source\Engine\EngineSpell.cs" />
+    <Compile Include="Source\Engine\EngineSpellCombination.cs" />
+    <Compile Include="Source\Engine\EngineStatePool.cs" />
+    <Compile Include="Source\Engine\IEngineNextRandom.cs" />
+    <Compile Include="Source\Engine\IEngineOutput.cs" />
+    <Compile Include="Source\Engine\IEngineScore.cs" />
+    <Compile Include="Source\Engine\IEngineStateInvalidator.cs" />
+    <Compile Include="Source\Engine\IEngineActions.cs" />
+    <Compile Include="Source\Engine\InputActions\AddEnergyInputAction.cs" />
+    <Compile Include="Source\Engine\InputActions\AddSpellInputAction.cs" />
+    <Compile Include="Source\Engine\InputActions\AddSwapsInputAction.cs" />
+    <Compile Include="Source\Engine\InputActions\SwapInputAction.cs" />
+    <Compile Include="Source\Engine\InputActions\UseSpellInputAction.cs" />
+    <Compile Include="Source\Engine\Levels\ActivationResult.cs" />
+    <Compile Include="Source\Engine\EngineFinishReason.cs" />
+    <Compile Include="Source\Engine\Levels\ArtifactId.cs" />
+    <Compile Include="Source\Engine\Levels\CombinationActivator.cs" />
+    <Compile Include="Source\Engine\Levels\EngineStreak.cs" />
+    <Compile Include="Source\Engine\Levels\Fall.cs" />
+    <Compile Include="Source\Engine\Levels\IActivatorContext.cs" />
+    <Compile Include="Source\Engine\Levels\LevelId.cs" />
+    <Compile Include="Source\Engine\Levels\MatchMergeData.cs" />
+    <Compile Include="Source\Engine\Levels\ModifierActivateData.cs" />
+    <Compile Include="Source\Engine\Levels\MoveType.cs" />
+    <Compile Include="Source\Engine\Levels\SwapCombinationActivator.cs" />
+    <Compile Include="Source\Engine\Levels\ItemId.cs" />
+    <Compile Include="Source\Engine\Levels\Orientation.cs" />
+    <Compile Include="Source\Engine\Levels\ITileGridProvider.cs" />
+    <Compile Include="Source\Engine\Levels\PositionConverter.cs" />
+    <Compile Include="Source\Engine\Levels\ShuffleResult.cs" />
+    <Compile Include="Source\Engine\Levels\TileGridActivator.cs" />
+    <Compile Include="Source\Engine\Levels\TileModifiers.cs" />
+    <Compile Include="Source\Engine\Levels\Spell.cs" />
+    <Compile Include="Source\Engine\Levels\UseSpell.cs" />
+    <Compile Include="Source\Engine\Levels\UseSpellType.cs" />
+    <Compile Include="Source\Engine\Matches\Match.cs" />
+    <Compile Include="Source\Engine\Matches\Match2With2Level2SwapItemCombination.cs" />
+    <Compile Include="Source\Engine\Matches\Match2WithUniversalSwapItemCombination.cs" />
+    <Compile Include="Source\Engine\Matches\Match3LCombination.cs" />
+    <Compile Include="Source\Engine\Matches\Match3TCombination.cs" />
+    <Compile Include="Source\Engine\Matches\Match4LTCombination.cs" />
+    <Compile Include="Source\Engine\Matches\Match5Combination.cs" />
+    <Compile Include="Source\Engine\Modules\ActivatorBeginModule.cs" />
+    <Compile Include="Source\Engine\Modules\ActivatorEndModule.cs" />
+    <Compile Include="Source\Engine\Modules\AutoActivatorModule.cs" />
+    <Compile Include="Source\Engine\Modules\AutoFinishModule.cs" />
+    <Compile Include="Source\Engine\Modules\AutoSwapModule.cs" />
+    <Compile Include="Source\Engine\Modules\CollectModule.cs" />
+    <Compile Include="Source\Engine\Modules\PostCollectModule.cs" />
+    <Compile Include="Source\Engine\Modules\RequirementModule.cs" />
+    <Compile Include="Source\Engine\Modules\ShuffleModule.cs" />
+    <Compile Include="Source\Engine\Modules\StreakBeginModule.cs" />
+    <Compile Include="Source\Engine\Modules\StreakEndModule.cs" />
+    <Compile Include="Source\Engine\OutputEvents\ActivateEvent.cs" />
+    <Compile Include="Source\Engine\OutputEvents\AddSpellEvent.cs" />
+    <Compile Include="Source\Engine\OutputEvents\ChangeItemEvent.cs" />
+    <Compile Include="Source\Engine\OutputEvents\ContinueEvent.cs" />
+    <Compile Include="Source\Engine\OutputEvents\CreateEvent.cs" />
+    <Compile Include="Source\Engine\OutputEvents\EndUseSpellEvent.cs" />
+    <Compile Include="Source\Engine\OutputEvents\EnergyChangeEvent.cs" />
+    <Compile Include="Source\Engine\OutputEvents\FallEvent.cs" />
+    <Compile Include="Source\Engine\OutputEvents\GenerateEvent.cs" />
+    <Compile Include="Source\Engine\OutputEvents\IncreaseLevelEvent.cs" />
+    <Compile Include="Source\Engine\OutputEvents\ItemToOuputEvent.cs" />
+    <Compile Include="Source\Engine\OutputEvents\ModifierEvent.cs" />
+    <Compile Include="Source\Engine\OutputEvents\PostSwapEvent.cs" />
+    <Compile Include="Source\Engine\OutputEvents\RequirementEvent.cs" />
+    <Compile Include="Source\Engine\OutputEvents\RequirementsCompleteEvent.cs" />
+    <Compile Include="Source\Engine\OutputEvents\ScoreEvent.cs" />
+    <Compile Include="Source\Engine\OutputEvents\ShuffleEvent.cs" />
+    <Compile Include="Source\Engine\OutputEvents\UseSpellActionEvent.cs" />
+    <Compile Include="Source\Engine\OutputEvents\SpellCombinationEvent.cs" />
+    <Compile Include="Source\Engine\OutputEvents\SpellCountChangeEvent.cs" />
+    <Compile Include="Source\Engine\OutputEvents\StartOverEvent.cs" />
+    <Compile Include="Source\Engine\OutputEvents\StreakEvent.cs" />
+    <Compile Include="Source\Engine\OutputEvents\UseSuiteSpellEvent.cs" />
+    <Compile Include="Source\Engine\OutputEvents\PreSwapEvent.cs" />
+    <Compile Include="Source\Engine\OutputEvents\SwapsChangedEvent.cs" />
+    <Compile Include="Source\Engine\OutputEvents\BeginUseSpellEvent.cs" />
+    <Compile Include="Source\Engine\Providers\ICombinationActivatorsProvider.cs" />
+    <Compile Include="Source\Engine\Providers\IModifierDescriptionProvider.cs" />
+    <Compile Include="Source\Engine\Providers\IEngineProviders.cs" />
+    <Compile Include="Source\Engine\Providers\ISpellCombinationsProvider.cs" />
+    <Compile Include="Source\Engine\Providers\ISpellDescriptionProvider.cs" />
+    <Compile Include="Source\Engine\Providers\ISpellTypeActionsProvider.cs" />
+    <Compile Include="Source\Engine\Shareds\Providers\SharedCombinationActivatorsProvider.cs" />
+    <Compile Include="Source\Engine\Shareds\Providers\SharedModifierDescriptionProvider.cs" />
+    <Compile Include="Source\Engine\Shareds\Providers\SharedProviders.cs" />
+    <Compile Include="Source\Engine\Shareds\Providers\SharedSpellCombinationsProvider.cs" />
+    <Compile Include="Source\Engine\Shareds\Providers\SharedSpellDescriptionProvider.cs" />
+    <Compile Include="Source\Engine\Shareds\Providers\SharedSpellTypeActionProvider.cs" />
+    <Compile Include="Source\Engine\Spells\ChainDestroySpellTypeAction.cs" />
+    <Compile Include="Source\Engine\Spells\ChangeItemSpellTypeAction.cs" />
+    <Compile Include="Source\Engine\Spells\DestoryAllByItemIdSpellTypeAction.cs" />
+    <Compile Include="Source\Engine\Spells\DestoryHorizontalLineThroughOneSpellTypeAction.cs" />
+    <Compile Include="Source\Engine\Spells\DestoryVerticalLineThroughOneSpellTypeAction.cs" />
+    <Compile Include="Source\Engine\Spells\DestroyCenterItemAsStartSpellTypeAction.cs" />
+    <Compile Include="Source\Engine\Spells\DestroyGridDiagonalLinesSpellTypeAction.cs" />
+    <Compile Include="Source\Engine\Spells\DestroySelectedHorizontalLineSpellTypeAction.cs" />
+    <Compile Include="Source\Engine\Spells\DestroySelectedVerticalLineSpellTypeAction.cs" />
+    <Compile Include="Source\Engine\Spells\DestroySomeItemSpellTypeAction.cs" />
+    <Compile Include="Source\Engine\Spells\DiagonalSplashSpellTypeAction.cs" />
+    <Compile Include="Source\Engine\Spells\MakeBonusItemSpellTypeAction.cs" />
+    <Compile Include="Source\Engine\Spells\RandomChangeItemLevelSpellTypeAction.cs" />
+    <Compile Include="Source\Engine\Spells\RandomDestorySpellTypeAction.cs" />
+    <Compile Include="Source\Engine\Spells\RandomMakeBonusItemAndActivateSpellTypeAction.cs" />
+    <Compile Include="Source\Engine\Spells\RandomSplashByValueSpellTypeAction.cs" />
+    <Compile Include="Source\Engine\Spells\SelectAndChangeItemsBySelectedSpellTypeAction.cs" />
+    <Compile Include="Source\Engine\Spells\SpellTypeAction.cs" />
+    <Compile Include="Source\Engine\Spells\SplashByValueSpellTypeAction.cs" />
+    <Compile Include="Source\Engine\Spells\SplashSpellTypeAction.cs" />
+    <Compile Include="Source\Engine\Spells\SwapItemSpellTypeAction.cs" />
+    <Compile Include="Source\Engine\Utils\BoundsUtils.cs" />
+    <Compile Include="Source\Engine\Utils\EnginePool.cs" />
+    <Compile Include="Source\Engine\Utils\ItemActivatorParser.cs" />
+    <Compile Include="Source\Engine\Utils\ItemEqualityComparer.cs" />
+    <Compile Include="Source\Engine\Utils\LevelParser.cs" />
+    <Compile Include="Source\Engine\Utils\MatchPatternParser.cs" />
+    <Compile Include="Source\Engine\Utils\PatternParser.cs" />
+    <Compile Include="Source\Engine\Utils\PoolFactory.cs" />
+    <Compile Include="Source\Engine\Utils\TileGridGenerator.cs" />
+    <Compile Include="Source\Engine\Levels\TileItemGenerator.cs" />
+    <Compile Include="Source\Engine\Levels\TileType.cs" />
+    <Compile Include="Source\Engine\Matches\IMatchCombinations.cs" />
+    <Compile Include="Source\Engine\Matches\Match3HorizontalCombination.cs" />
+    <Compile Include="Source\Engine\Matches\Match3VerticalCombination.cs" />
+    <Compile Include="Source\Engine\Matches\MatchCombinationsResult.cs" />
+    <Compile Include="Source\Engine\Matches\MatchPattern.cs" />
+    <Compile Include="Source\Engine\Modules\MatchModule.cs" />
+    <Compile Include="Source\Engine\Modules\EngineModule.cs" />
+    <Compile Include="Source\Engine\Modules\GeneratorModule.cs" />
+    <Compile Include="Source\Engine\Modules\FallModule.cs" />
+    <Compile Include="Source\Engine\Modules\ModuleTickState.cs" />
+    <Compile Include="Source\Engine\Modules\PostFallModule.cs" />
+    <Compile Include="Source\Engine\OutputEvents\FinishEvent.cs" />
+    <Compile Include="Source\Engine\OutputEvents\OutputEvent.cs" />
+    <Compile Include="Source\Engine\Providers\ICommandsProvider.cs" />
+    <Compile Include="Source\Engine\Providers\IItemDescriptionProvider.cs" />
+    <Compile Include="Source\Engine\Providers\ILevelDescriptionProvider.cs" />
+    <Compile Include="Source\Engine\Providers\IMatchesProvider.cs" />
+    <Compile Include="Source\Engine\Providers\IModulesProvider.cs" />
+    <Compile Include="Source\Engine\Shareds\Providers\SharedItemDescriptionProvider.cs" />
+    <Compile Include="Source\Engine\Descriptions\Items\ItemLevelDescription.cs" />
+    <Compile Include="Source\Engine\Descriptions\Items\ItemType.cs" />
+    <Compile Include="Source\Engine\Descriptions\Levels\LevelDescription.cs" />
+    <Compile Include="Source\Engine\Shareds\Providers\SharedCommandsProvider.cs" />
+    <Compile Include="Source\Engine\Levels\TileGrid.cs" />
+    <Compile Include="Source\Engine\Levels\Direction.cs" />
+    <Compile Include="Source\Engine\Levels\Edge.cs" />
+    <Compile Include="Source\Engine\EngineModules.cs" />
+    <Compile Include="Source\Engine\IEngineState.cs" />
+    <Compile Include="Source\Engine\Levels\EdgeType.cs" />
+    <Compile Include="Source\Engine\Shareds\Providers\SharedMatchesProvider.cs" />
+    <Compile Include="Source\Engine\Levels\Bounds.cs" />
+    <Compile Include="Source\Engine\Utils\EngineRandom.cs" />
+    <Compile Include="Source\Engine\Levels\Item.cs" />
+    <Compile Include="Source\Engine\InputActions\InputAction.cs" />
+    <Compile Include="Source\Engine\Configuration.cs" />
+    <Compile Include="Source\Engine\Engine.cs" />
+    <Compile Include="Source\Engine\EngineState.cs" />
+    <Compile Include="Source\Engine\IEngine.cs" />
+    <Compile Include="Source\Engine\Levels\Modifier.cs" />
+    <Compile Include="Source\Engine\Descriptions\Modifiers\ModifierType.cs" />
+    <Compile Include="Source\Engine\Levels\Position.cs" />
+    <Compile Include="Source\Engine\Shareds\Providers\SharedModulesProvider.cs" />
+    <Compile Include="Source\Engine\Utils\PriorityQueueComparable.cs" />
+    <Compile Include="Source\Engine\Levels\Tile.cs" />
+    <Compile Include="Source\Engine\Levels\Point.cs" />
+    <Compile Include="Source\Engine\Levels\Swap.cs" />
+    <Compile Include="Source\Engine\Utils\UnsignedIntDictionary.cs" />
+    <Compile Include="Source\Match3Factory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Source\Engine\Matches\MatchCombination.cs" />
+    <Compile Include="Source\Engine\Commands\SwapCommand.cs" />
+    <Compile Include="Source\Engine\EngineTickState.cs" />
+    <Compile Include="Source\Engine\Modules\TickInvalidation.cs" />
+    <Compile Include="Source\Engine\Matches\Match4VerticalCombination.cs" />
+    <Compile Include="Source\Engine\Matches\Match4HorizontalCombination.cs" />
+    <Compile Include="Source\Engine\IEngineRequirement.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

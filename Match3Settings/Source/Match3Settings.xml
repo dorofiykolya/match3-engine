@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<match3>
+
+  <!--описания-->
+  <descriptions>
+    <description id="simplerock">Камень - основной игровой элемент, именно их игрок передвигает и собирает в ряды. Находится на среднем слое игровых объектов</description>
+    <description id="red4">Красный - взрывает вокруг себя все соседние камни и по диагонали (площадь - квадрат со стороной 3 ячейки и с центром на этом камне)</description>
+    <description id="green4">уничтожает восемь камней. По одному на каждой из диагоналей. И по одному камню через один вверх, вниз, влево, вправо (ближайшие вверх-вниз-влево-вправо остаются нетронутыми). В результате получается ромб из уничтоженных камней.</description>
+    <description id="yellow4">Жёлтый - уничтожает горизонтальный ряд в котором находится</description>
+    <description id="white4">Белый - уничтожает вертикальный ряд</description>
+    <description id="violet4">Фиолетовый - уничтожает камни на расстоянии по две ячейки в направлении каждой каждой из диагоналей (ближайший и следующий в каждом направлении. В сумме 8)</description>
+    <description id="blue4">Синий - уничтожает камни крестом на расстояние два влево, вправо, вверх и вниз</description>
+    <description id="bonusrock">Бонус – элемент, который может быть перемещаем так же как и камень и подчиняется тем же правилам, что и камни, но не может быть уничтоже никаким образом. Единственный пусть, котором он может покинуть поле – опуститься в корзину"</description>
+    <description id="rock5">
+      Камень третьего уровня - прозрачная сияющая сфера. Получается при комбинации любых пяти камней в горизонтальную или вертикальную линии.
+      Каммень не имеет цвета, поэтому его можно перемещать не проверяя требование на составление цепочки после перемещения.
+      После его перемещения на поле уничтожаются все камни того цвета, с которым был обменян местами камень третьего уровня.
+    </description>
+    <description id="spellType0">0 - ChangeItem (Шлем – перекрашивание камней. Некоторое количество камней меняет свой цвет на какой-то определённо выбранный.)</description>
+    <description id="spellType1">1 - MakeBonusItem (Кираса – создание бонусов. Несколько камней становятся бонусными.)</description>
+    <description id="spellType2">2 - DestroySomeItem (Сапоги – уничтожает камни выбранного цвета. Целью выбирается камень. Затем начиная от 12 часов по часовой стрелки начинают искать камни того же цвета и уничтожаться, пока не достигнут лимита заклинаний. С уровнем растёт количество камней, которые будут уничтожены.)</description>
+    <description id="spellType3">3 - RandomDestory (Оружие – точечно рандомно разбивает несколько камней на поле. От уровня растёт количество разбиваемых камней.)</description>
+    <description id="spellType4">4 - Splash (Щит – разбивает камни по определённой площади. Площадь поражения растёт от уровня.)</description>
+    <description id="spellType5">5 - ChainDestroy (Амулет – «Цепная молния». Количество камней, который разбиваются по цепочке (игрок выбирает начальный, молния прыгает на соседние камни или через один))</description>
+    <description id="spellType6">6 - SwapItem (меняет выбранные ячейки местами)</description>
+    <description id="spellType7">7 - RandomMakeBonusItemAndActivate (рандомно преобразует 2 камня первого уровня во второй и взрывает их)</description>
+
+    <description id="spellType8">8 - DestroySelectedVerticalLine (выжигает выбранный вертикальный ряд)</description>
+    <description id="spellType9">9 - DestroySelectedHorizontalLine (выжигает выбранный горизонтальный ряд)</description>
+    <description id="spellType10">10 - DestoryAllByItemId (уничтожает выбранный цвет)</description>
+    <description id="spellType11">11 - DiagonalSplash (выбирается камень и от него по диагонали на все 4 стороны выжигая)</description>
+    <description id="spellType12">12 - RandomChangeItemLevel (превращает в камни любого уровня)</description>
+    <description id="spellType13">13 - SelectAndChangeItemsBySelected (выбирает любой камень на поле, затем он взрывается из него как бы вылетает жидкость и он рандомно перекрашивает от 5 до 7 камней на поле в цвет камня который взорвался)</description>
+    <description id="spellType14">14 - DestroyCenterItemAsStart (выбираем центральный камень поля и взрывает 8 камней (с центральным 9) в форме звезды)</description>
+    <description id="spellType15">15 - DestroyGridDiagonalLines (выжигает два ряда наискосок (от крайних угловых камней))</description>
+    <description id="spellType16">16 - DestoryVerticalLineThroughOne (уничтожает по одному вертикальному ряду через один)</description>
+    <description id="spellType17">17 - DestoryHorizontalLineThroughOne (уничтожает по одному горизонтальному ряду через один)</description>
+    <description id="spellType18">18 - SplashByValue (уничтожает любой выбранный камень на поле и по камню вокруг него)</description>
+    <description id="spellType19">19 - RandomSplashByValue (рандомно уничтожает любой камень на поле и по камню вокруг него)</description>
+
+    <description id="rune7">2 - DestroySomeItem (разбивает одну выбранную ячейку)</description>
+    <description id="rune8">3 - RandomDestory (рандомно атакует 3 ячейки)</description>
+    <description id="rune9">0 - ChangeItem (рандомно преобразует 6 ячеек в одини цвет)</description>
+    <description id="rune10">5 - ChainDestroy (цепная молния в указаную ячейку и далее по ближайшим ячейкам того же цвета не более 4)</description>
+    <description id="rune11">1 - MakeBonusItem (рандомно преобразует камень первого уровня в камень второго)</description>
+    <description id="rune12">6 - SwapItem (рандомно преобразует камень первого уровня в камень второго)</description>
+    <description id="rune13">3 - RandomDestory (рандомно атакует 6 ячейки)</description>
+    <description id="rune14">7 - RandomMakeBonusItemAndActivate (рандомно преобразует 2 камня первого уровня во второй и взрывает их)</description>
+    <description id="rune15">5 - ChainDestroy (цепная молния в указаную ячейку и далее по ближайшим ячейкам того же цвета не более 7)</description>
+    <description id="rune16">8 - DestroySelectedVerticalLine (выжигает выбранный вертикальный ряд)</description>
+    <description id="rune17">0 - ChangeItem (рандомно преобразует 9 ячеек в одини цвет)</description>
+    <description id="rune18">9 - DestroySelectedHorizontalLine (выжигает выбранный горизонтальный ряд)</description>
+    <description id="rune19">4 - Splash (рандомно уничтожает любой выбранный камень на поле и по камню вокруг него)</description>
+    <description id="rune20">10 - DestoryAllByItemId (уничтожает выбранный цвет)</description>
+    <description id="rune21">11 - DiagonalSplash (выбирается камень и от него по диагонали на все 4 стороны выжигая)</description>
+    <description id="rune22">12 - RandomChangeItemLevel (превращает три камня в камни любого уровня)</description>
+    <description id="rune23">13 - SelectAndChangeItemsBySelected (выбирает любой камень на поле, затем он взрывается из него как бы вылетает жидкость и он рандомно перекрашивает от 5 до 7 камней на поле в цвет камня который взорвался)</description>
+    <description id="rune24">14 - DestroyCenterItemAsStart (выбираем центральный камень поля и взрывает 8 камней (с центральным 9) в форме звезды)</description>
+    <description id="rune25">15 - DestroyGridDiagonalLines (выжигает два ряда наискосок (от крайних угловых камней))</description>
+    <description id="rune26">17 - DestoryHorizontalLineThroughOne (уничтожает по одному горизонтальному ряду через один)</description>
+    <description id="rune27">16 - DestoryVerticalLineThroughOne (уничтожает по одному вертикальному ряду через один)</description>
+  </descriptions>
+
+  <!--предметы-->
+  <items>
+
+    <!--
+    item type: (типы камней)
+    0 - простой камень
+    1 - бонусный камень
+    2 - универальня ячейка при перемещении
+    -->
+
+    <!--простой камень-->
+    <item id="1" name="green"    type="0" description="simplerock" >
+      <levels>
+        <level score="10">[X]</level>
+        <level score="30">
+          [#|#|#]
+          [#|X|#]
+          [#|#|#]
+        </level>
+        <!--<level score="10">[X]</level>-->
+      </levels>
+    </item>
+    <item id="2" name="yellow"   type="0" description="simplerock" >
+      <levels>
+        <level score="10">[X]</level>
+        <level score="30">
+          [ | |#| | ]
+          [ | |#| | ]
+          [#|#|X|#|#]
+          [ | |#| | ]
+          [ | |#| | ]
+        </level>
+        <!--<level score="10">[X]</level>-->
+      </levels>
+    </item>
+    <item id="3" name="white"  type="0" description="simplerock" >
+      <levels>
+        <level score="10">[X]</level>
+        <level score="30">
+          [#]
+          [#]
+          [#]
+          [#]
+          [#]
+          [#]
+          [#]
+          [#]
+          [#]
+          [X]
+          [#]
+          [#]
+          [#]
+          [#]
+          [#]
+          [#]
+          [#]
+          [#]
+          [#]
+        </level>
+        <!--<level score="10">[X]</level>-->
+      </levels>
+    </item>
+    <item id="4" name="blue" type="0" description="simplerock" >
+      <levels>
+        <level score="10">[X]</level>
+        <level score="30">
+          [#|#|#|#|#|#|#|#|#|X|#|#|#|#|#|#|#|#|#]
+        </level>
+        <!--<level score="10">[X]</level>-->
+      </levels>
+    </item>
+    <item id="5" name="violet" type="0" description="simplerock" >
+      <levels>
+        <level score="10">[X]</level>
+        <level score="30">
+          [#| | | |#]
+          [ |#| |#| ]
+          [ | |X| | ]
+          [ |#| |#| ]
+          [#| | | |#]
+        </level>
+        <!--<level score="10">[X]</level>-->
+      </levels>
+    </item>
+    <item id="6" name="red"  type="0" description="simplerock" >
+      <levels>
+        <level score="10">[X]</level>
+        <level score="30">
+          [ | |#| | ]
+          [ |#| |#| ]
+          [#| |X| |#]
+          [ |#| |#| ]
+          [ | |#| | ]
+        </level>
+        <!--<level score="10">[X]</level>-->
+      </levels>
+    </item>
+
+    <!--унивесальная ячейка-->
+    <item id="7" name="universalswapcell" type="2" description="rock5">
+      <levels>
+        <level score="50">[X]</level>
+      </levels>
+    </item>
+
+    <!--бонусный камень-->
+    <item id="10" name="bonus" type="1" description="bonusrock" >
+      <levels>
+        <level score="100">[X]</level>
+      </levels>
+    </item>
+
+  </items>
+
+  <!--модификаторы-->
+  <modifiers>
+
+    <!--
+    modify type: (типы модификаторов)
+    0 - None - нет эффекта
+    1 - Armor - защита клетки (Броня – элемент, который находится на верхнем слое объектов. Имеет несколько уровней прочности, которые должны отображаться разным вижуалом (максимум 8). Игрок не может взаимодействовать с элементами (камни и бонусы), находящимися под бронёй. И эти элементы не могут быть разрушены или перемещены (в том числе не могут упасть ниже, если там есть свободное место). Однако если камень находящейся под бронёй становится частью цепочки – цепочка считается составленной и все элементы входящие в неё уничтожаются, кроме камней под бронёй. Вместо этого броня теряет одну единицу прочности. Кроме того броня теряет по единице прочности каждый раз, когда собранная цепочка прилегает к тайлу с бронёй. Либо тайл с бронёй получает удар от заклинания или сработавшего бонуса на поле.)
+    2 - Substrate - подложка («Подложка» - элемент на нижнем слое. Никак не взаимодействует с другими окружающими элементами, не мешает перемещениям и т.д. Их уничтожение обычно является частью задания. Имеют хитпоинты до восьми. Каждый хитпоинт имеет свой вижуал. Когда хитпоинты достигают нулья – сущность удаляется. Хитпоинты снимаются когда по какой-либо причине уничтожается камень находящийся в том же поле.)
+    3 - Box - как Armor только в него не падает итем
+    
+    activationType: битовая маска (тип активации ячейки)
+    0 (0) - не активируется
+    1 (1 << 1) - активируется только в текущей клетке
+    2 (1 << 2) - активируется из соседних клеток
+    3 (1 | 2) - 1 + 2
+    -->
+
+
+    <modify id="1" type="1" activationType="3" />
+    <modify id="2" type="2" activationType="1" />
+    <modify id="3" type="3" activationType="3" />
+
+  </modifiers>
+
+  <!--спелы-->
+  <!--
+    spell type: (типы спелов)
+    
+    0 - ChangeItem (Шлем – перекрашивание камней. Некоторое количество камней меняет свой цвет на какой-то определённо выбранный.)
+    1 - MakeBonusItem (Кираса – создание бонусов. Несколько камней становятся бонусными.)
+    2 - DestroySomeItem (Сапоги – уничтожает камни выбранного цвета. Целью выбирается камень. Затем начиная от 12 часов по часовой стрелки начинают искать камни того же цвета и уничтожаться, пока не достигнут лимита заклинаний. С уровнем растёт количество камней, которые будут уничтожены.)
+    3 - RandomDestory (Оружие – точечно рандомно разбивает несколько камней на поле. От уровня растёт количество разбиваемых камней.)
+    4 - Splash (Щит – разбивает камни по определённой площади. Площадь поражения растёт от уровня.)
+    5 - ChainDestroy (Амулет – «Цепная молния». Количество камней, который разбиваются по цепочке (игрок выбирает начальный, молния прыгает на соседние камни или через один))
+    
+    use type: (тип использования)
+    0 - обыкновенный спел
+    1 - руна
+    
+    usePoints: к-во ячеек которых нужно указать для активации спела (использование точек, к примеру количество выбраных ячеек, к которым нужно применить спелл)
+    -->
+
+  <spells>
+<!-- 
+    <spell id="1" useType="0" type="0" usePoints="0" description="spellType0">
+      <levels>
+		<level value="1" energy="100" />
+		<level value="2" energy="100" />
+		<level value="3" energy="100" />
+      </levels>
+    </spell>
+
+    <spell id="2" useType="0" type="1" usePoints="0" description="spellType1">
+      <levels>
+		<level value="1" energy="100" />
+		<level value="2" energy="100" />
+		<level value="3" energy="100" />
+      </levels>
+    </spell>
+
+    <spell id="3" useType="0" type="2" usePoints="1" description="spellType2">
+      <levels>
+		<level value="1" energy="100" />
+		<level value="2" energy="100" />
+		<level value="3" energy="100" />
+      </levels>
+    </spell>
+
+    <spell id="4" useType="0" type="3" usePoints="0" description="spellType3">
+      <levels>
+		<level value="1" energy="100" />
+		<level value="2" energy="100" />
+		<level value="3" energy="100" />
+      </levels>
+    </spell>
+
+    <spell id="5" useType="0" type="4" usePoints="1" description="spellType4">
+      <levels>
+		<level value="1" energy="100" />
+        <level value="2" energy="1" />
+        <level value="3" energy="1" />
+      </levels>
+    </spell>
+
+    <spell id="6" useType="0" type="5" usePoints="1" description="spellType5">
+      <levels>
+		<level value="1" energy="100" />
+        <level value="2" energy="1" />
+        <level value="3" energy="1" />
+      </levels>
+    </spell>
+	
+	<spell id="29" useType="0" type="19" usePoints="1" description="spellType19">
+      <levels>
+		<level value="1" energy="100"/>
+      </levels>
+    </spell>
+
+    <spell id="12" useType="1" type="1" usePoints="0" description="rune12">
+      <levels>
+		<level value="1" energy="100"/>
+      </levels>
+    </spell>
+-->
+
+    <spell id="1" useType="1" type="2" usePoints="1" description="rune7" unlockLevel="5">
+      <levels>
+		<level value="0" energy="100"/>
+      </levels>
+    </spell>
+
+    <spell id="2" useType="1" type="3" usePoints="0" description="rune8" unlockLevel="7">
+      <levels>
+		<level value="3" energy="100"/>
+      </levels>
+    </spell>
+   
+   <spell id="3" useType="1" type="0" usePoints="1" description="rune10" unlockLevel="9">
+      <levels>
+		<level value="6" energy="100"/>
+      </levels>
+    </spell>
+	
+    <spell id="4" useType="1" type="5" usePoints="0" description="rune11" unlockLevel="11">
+      <levels>
+		<level value="4" energy="100"/>
+      </levels>
+    </spell>
+	
+    <spell id="5" useType="1" type="1" usePoints="1" description="spellType6" unlockLevel="13">
+      <levels>
+		<level value="1" energy="100"/>
+      </levels>
+    </spell>
+
+    <spell id="6" useType="1" type="6" usePoints="2" description="rune9" unlockLevel="14">
+      <levels>
+		<level value="2" energy="100"/>
+      </levels>
+    </spell>
+
+    <spell id="7" useType="1" type="3" usePoints="0" description="rune13" unlockLevel="15">
+      <levels>
+		<level value="6" energy="100"/>
+      </levels>
+    </spell>
+
+    <spell id="8" useType="1" type="7" usePoints="0" description="rune14" unlockLevel="16">
+      <levels>
+		<level value="2" energy="100"/>
+      </levels>
+    </spell>
+
+    <spell id="9" useType="1" type="5" usePoints="1" description="rune15" unlockLevel="19">
+      <levels>
+		<level value="7" energy="100"/>
+      </levels>
+    </spell>
+
+    <spell id="10" useType="1" type="8" usePoints="1" description="rune16" unlockLevel="21">
+      <levels>
+		<level value="1" energy="100"/>
+      </levels>
+    </spell>
+
+    <spell id="11" useType="1" type="0" usePoints="0" description="rune17" unlockLevel="22">
+      <levels>
+		<level value="9" energy="100"/>
+      </levels>
+    </spell>
+
+    <spell id="12" useType="1" type="9" usePoints="1" description="rune18" unlockLevel="23">
+      <levels>
+		<level value="1" energy="100"/>
+      </levels>
+    </spell>
+
+    <spell id="13" useType="1" type="18" usePoints="1" description="rune19" unlockLevel="26">
+      <levels>
+		<level value="1" energy="100"/>
+      </levels>
+    </spell>
+
+    <spell id="14" useType="1" type="10" usePoints="1" description="rune20" unlockLevel="28">
+      <levels>
+		<level value="1" energy="100"/>
+      </levels>
+    </spell>
+
+    <spell id="15" useType="1" type="11" usePoints="1" description="rune21" unlockLevel="33">
+      <levels>
+		<level value="1" energy="100"/>
+      </levels>
+    </spell>
+
+    <spell id="16" useType="1" type="12" usePoints="0" description="rune22" unlockLevel="37">
+      <levels>
+		<level value="3" energy="100"/>
+      </levels>
+    </spell>
+
+    <spell id="17" useType="1" type="13" usePoints="0" description="rune23" unlockLevel="41">
+      <levels>
+		<level minValue="5" value="7" energy="100"/>
+      </levels>
+    </spell>
+
+    <spell id="18" useType="1" type="14" usePoints="1" description="rune24" unlockLevel="46">
+      <levels>
+		<level value="1" energy="100"/>
+      </levels>
+    </spell>
+
+	<spell id="19" useType="1" type="15" usePoints="0" description="rune27" unlockLevel="48">
+      <levels>
+		<level value="1" energy="100"/>
+      </levels>
+    </spell>
+
+    <spell id="20" useType="1" type="17" usePoints="0" description="rune25" unlockLevel="50">
+      <levels>
+		<level value="1" energy="100"/>
+      </levels>
+    </spell>
+
+    <spell id="21" useType="1" type="16" usePoints="0" description="rune26" unlockLevel="52">
+      <levels>
+		<level value="1" energy="100"/>
+      </levels>
+    </spell>
+
+  </spells>
+
+  <!--комбинации для открытия доступности спела-->
+  <spellcombinations>
+    <spell id="1" level="0">
+      <swap id="3" />
+      <swap id="3" />
+    </spell>
+	<spell id="2" level="0">
+      <swap id="6" />
+      <swap id="6" />
+    </spell>
+	<spell id="3" level="0">
+      <swap id="4" />
+      <swap id="4" />
+    </spell>
+	<spell id="4" level="0">
+      <swap id="1" />
+      <swap id="1" />
+    </spell>
+	<spell id="5" level="0">
+      <swap id="5" />
+      <swap id="5" />
+    </spell>
+	<spell id="6" level="0">
+      <swap id="2" />
+      <swap id="2" />
+    </spell>
+    <spell id="7" level="0">
+      <swap id="3" />
+      <swap id="6" />
+    </spell>
+    <spell id="8" level="0">
+      <swap id="3" />
+      <swap id="2" />
+    </spell>
+    <spell id="9" level="0">
+      <swap id="3" />
+      <swap id="4" />
+    </spell>
+    <spell id="10" level="0">
+      <swap id="3" />
+      <swap id="1" />
+    </spell>
+    <spell id="11" level="0">
+      <swap id="3" />
+      <swap id="5" />
+    </spell>
+    <spell id="12" level="0">
+      <swap id="6" />
+      <swap id="2" />
+    </spell>
+    <spell id="13" level="0">
+      <swap id="6" />
+      <swap id="4" />
+    </spell>
+    <spell id="14" level="0">
+      <swap id="6" />
+      <swap id="1" />
+    </spell>
+    <spell id="15" level="0">
+      <swap id="6" />
+      <swap id="5" />
+    </spell>
+    <spell id="16" level="0">
+      <swap id="2" />
+      <swap id="4" />
+    </spell>
+    <spell id="17" level="0">
+      <swap id="2" />
+      <swap id="1" />
+    </spell>
+    <spell id="18" level="0">
+      <swap id="2" />
+      <swap id="5" />
+    </spell>
+    <spell id="19" level="0">
+      <swap id="1" />
+      <swap id="5" />
+    </spell>
+    <spell id="20" level="0">
+      <swap id="4" />
+      <swap id="1" />
+    </spell>
+    <spell id="21" level="0">
+      <swap id="4" />
+      <swap id="5" />
+    </spell>
+  </spellcombinations>
+
+</match3>

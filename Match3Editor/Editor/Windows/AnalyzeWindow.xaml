@@ -1,0 +1,29 @@
+﻿<Window x:Class="Match3.Editor.Windows.AnalyzeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Match3.Editor.Windows"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+		Closed="AnalyzeWindow_OnClosed"
+		MinWidth="350" MinHeight="250"
+		WindowStartupLocation="CenterScreen"
+        Title="AnalyzeWindow" Height="300" Width="500" Icon="/Match3Editor;component/Icons/play.png">
+	<materialDesign:DialogHost x:Name="DialogHost" IsOpen="False">
+		<materialDesign:DialogHost.DialogContent>
+			<StackPanel Orientation="Vertical" Width="250">
+				<ProgressBar Width="24" Height="24" Margin="16"
+                 Style="{DynamicResource MaterialDesignCircularProgressBar}"
+                 IsIndeterminate="True"
+                 Value="33"/>
+				<Label Width="250" HorizontalAlignment="Left" x:Name="ProgressSwapsLabel">Swaps</Label>
+				<Label Width="250" HorizontalAlignment="Left" x:Name="ProgressVariantsLabel">Variant</Label>
+				<Label Width="250" HorizontalAlignment="Left" x:Name="ProgressSuccessLabel">Success</Label>
+				<Label Width="250" HorizontalAlignment="Left" x:Name="ProgressFailLabel">Fail</Label>
+				<ProgressBar Width="250" Value="50" Minimum="0" Maximum="1" x:Name="ProgressBar"></ProgressBar>
+			</StackPanel>
+		</materialDesign:DialogHost.DialogContent>
+		<TextBox x:Name="TextBox" Padding="10" Margin="10"></TextBox>
+	</materialDesign:DialogHost>
+</Window>

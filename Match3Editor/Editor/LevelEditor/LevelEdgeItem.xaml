@@ -1,0 +1,37 @@
+﻿<Button x:Class="Match3.Editor.LevelEditor.LevelEdgeItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:Match3.Editor.LevelEditor"
+             mc:Ignorable="d" 
+             DataContext="{Binding RelativeSource={RelativeSource Self}}"
+      MouseEnter="MouseEnterHandler"
+      MouseLeave="MouseLeaveHandler"
+      ClipToBounds="False"
+      Padding="0"
+      Margin="0"
+      BorderThickness="0"
+      Background="#01000000">
+    <Button.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Shadows.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ToggleButton.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TextBlock.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Button.Resources>
+    <Grid x:Name="Content" Margin="0" Height="50" Width="20">
+        <Rectangle x:Name="Rect" RadiusX="5" RadiusY="5" StrokeThickness="1" Stroke="Black" Fill="{Binding BackColor}" />
+        <StackPanel x:Name="StackPanel" VerticalAlignment="Center" HorizontalAlignment="Center" ClipToBounds="False">
+            <materialDesign:PackIcon Margin="-3" x:Name="DirectionArrow" Foreground="Black" VerticalAlignment="Center" HorizontalAlignment="Center" Kind="ArrowLeft" />
+            <Label x:Name="IndexLabel" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="-3">1</Label>
+            <materialDesign:PackIcon Margin="-3" x:Name="Icon" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" Kind="Inbox" />
+        </StackPanel>
+        <Rectangle x:Name="Hover" Visibility="Hidden" RadiusX="5" RadiusY="5" StrokeThickness="1" Stroke="Red" Fill="#2F000000" />
+        <Rectangle Visibility="Visible" RadiusX="5" RadiusY="5" Fill="#05000000" />
+    </Grid>
+</Button>

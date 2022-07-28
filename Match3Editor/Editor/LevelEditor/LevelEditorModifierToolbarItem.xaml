@@ -1,0 +1,15 @@
+﻿<ListBoxItem x:Class="Match3.Editor.LevelEditor.LevelEditorModifierToolbarItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Match3.Editor.LevelEditor"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             DataContext="{Binding RelativeSource={RelativeSource Self}}"
+             Padding="0"
+             mc:Ignorable="d">
+    <Grid Margin="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+        <materialDesign:PackIcon Margin="0 0 10 0" Padding="0" Width="20" Height="20" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Kind="{Binding Icon}" Opacity="1"/>
+        <Label Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" FontWeight="Bold" Content="{Binding Label}" Foreground="Black"></Label>
+    </Grid>
+</ListBoxItem>

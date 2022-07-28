@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="Match3.Editor.LevelEditor.LevelEditorDirectionItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Match3.Editor.LevelEditor"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             DataContext="{Binding RelativeSource={RelativeSource Self}}"
+             Height="50" Width="50">
+    <Grid>
+        <materialDesign:PackIcon Foreground="{Binding IconColor, Mode=OneWay}" Width="50" Height="50" Kind="{Binding Icon}"></materialDesign:PackIcon>
+    </Grid>
+</UserControl>
+

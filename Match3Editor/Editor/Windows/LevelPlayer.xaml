@@ -1,0 +1,50 @@
+﻿<Window x:Class="Match3.Editor.Windows.LevelPlayer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Match3.Editor"
+        xmlns:player="clr-namespace:Match3.Editor.Player"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Width="800"
+        Height="800"
+        WindowStartupLocation="CenterScreen"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}"
+        Title="LevelPlayer" HorizontalAlignment="Left" VerticalAlignment="Top" Icon="/Match3Editor;component/Icons/play.png">
+    <Grid Width="Auto" Height="Auto">
+        <DockPanel Height="50" VerticalAlignment="Top">
+            <Slider ValueChanged="TimeSlider_OnValueChanged" Name="TimeSlider" HorizontalContentAlignment="Stretch" Minimum="0.01" Maximum="10" Value="1" DockPanel.Dock="Top" SmallChange="0.01" Ticks="100" TickFrequency="0.1" AutoToolTipPrecision="2" AutoToolTipPlacement="BottomRight" IsMoveToPointEnabled="True"/>
+            <CheckBox  VerticalAlignment="Center" IsChecked="{Binding IsPlay}" Margin="5">IsPlay</CheckBox>
+            <CheckBox  VerticalAlignment="Center" IsChecked="{Binding ShowSwaps}" Margin="5">ShowSwaps</CheckBox>
+			<Button Margin="10 0 10 5" Click="Backward_OnClick">Backward</Button>
+	        <Button Margin="10 0 10 5" Click="AddEnergy_OnClick">Add 1 Energy</Button>
+            <Label VerticalAlignment="Center" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Content="Time Scale:"/>
+            <Label VerticalAlignment="Center" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Content="{Binding ElementName=TimeSlider, Path=Value}"/>
+
+            <Label Name="Swaps" Margin="50 0 0 0" HorizontalContentAlignment="Left" HorizontalAlignment="Left"/>
+            <Label Name="Energy" Margin="50 0 0 0" HorizontalContentAlignment="Left" HorizontalAlignment="Left"/>
+            <Label Name="Score" Margin="50 0 0 0" HorizontalContentAlignment="Left" HorizontalAlignment="Left"/>
+        </DockPanel>
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal" Margin="20, 70, 20, 20" FlowDirection="LeftToRight" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <player:TileGridControl x:Name="TileGridControl" />
+                <StackPanel Name="Requirements" Orientation="Vertical" Width="100" Margin="20"></StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <Label>Possible Spells</Label>
+                    <StackPanel x:Name="PossibleSpells">
+
+                    </StackPanel>
+                    <Label>Available Spells</Label>
+                    <StackPanel x:Name="AvailableSpells">
+
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+            <Label>Spells</Label>
+            <StackPanel x:Name="Spells" Orientation="Vertical">
+
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
